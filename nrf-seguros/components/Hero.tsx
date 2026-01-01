@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { TrendingDown, ImageIcon, RefreshCw, AlertCircle } from 'lucide-react';
-import { ServiceType } from '../types';
+import { ServiceType } from './types';
 import { GoogleGenAI } from "@google/genai";
 
 interface HeroProps {
@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
       }
 
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = "High-end cinematic photography of a happy Brazilian family (father, mother, child) in front of a modern elegant home with a sophisticated SUV car parked in the driveway, bright sunny day, sense of security and prosperity, professional lighting, 8k resolution.";
+      const prompt = "High-end cinematic photography of a happy Brazilian family (father, mother, child) in front of a modern elegant home, a sophisticated SUV car parked in the driveway, bright sunny day, sense of security and prosperity, professional lighting, 8k resolution.";
       
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash-image',
@@ -117,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
                   <>
                     <img 
                       src={generatedImageUrl || fallbackImage} 
-                      alt="Família, Casa e Veículo Protegidos NRF Seguros" 
+                      alt="Família e Veículo Protegidos NRF Seguros" 
                       className="w-full h-[500px] object-cover transition-opacity duration-700" 
                     />
                     <button 
